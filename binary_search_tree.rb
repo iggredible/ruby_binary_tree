@@ -1,11 +1,10 @@
 require './tree_node'
 
 class BinarySearchTree
-  attr_accessor :root#, :size
+  attr_accessor :root
 
   def initialize(root: nil)
     @root = root
-    # @size = size
   end
 
   def insert!(value:)
@@ -20,8 +19,6 @@ class BinarySearchTree
         current_node.right = TreeNode.new(value: value)
       end
     end
-
-    # @size += 1
   end
 
   def reset!
@@ -64,7 +61,6 @@ class BinarySearchTree
   end
 
   # in-order traversal
-  # TODO: finish this
   def remove!(value:, node: @root)
     node = node_remover!(value: value, node: node)
     @root = node

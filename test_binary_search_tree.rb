@@ -150,7 +150,7 @@ describe BinarySearchTree do
 
         current_size = bst.size
         assert_equal current_size, 7
-        assert_equal([bst.root.right.left, bst.root.right.right].compact.length, 2) # ensure the node-about-to-be-removed has two children
+        assert_equal([bst.root.right.left, bst.root.right.right].compact.length, 2)
         bst.remove!(value: 15)
         assert_equal bst.root.right.value, 12
       end
@@ -159,17 +159,17 @@ describe BinarySearchTree do
     describe "when node has one child" do
       it "removes the node and promotes its child to its position" do
         bst = BinarySearchTree.new
-        bst.insert!(value: 10) # root
+        bst.insert!(value: 10)
 
-        bst.insert!(value: 5) # root.left
+        bst.insert!(value: 5)
 
-        bst.insert!(value: 15) # root.right
-        bst.insert!(value: 12) # root.right.left
-        bst.insert!(value: 11) # root.right.left.left
+        bst.insert!(value: 15)
+        bst.insert!(value: 12)
+        bst.insert!(value: 11)
 
         current_size = bst.size
         assert_equal current_size, 5
-        assert_equal([bst.root.right.left, bst.root.right.right].compact.length, 1) # ensure the node-about-to-be-removed has one child
+        assert_equal([bst.root.right.left, bst.root.right.right].compact.length, 1)
         bst.remove!(value: 15)
         assert_equal 12, bst.root.right.value
       end
